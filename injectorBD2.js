@@ -54,7 +54,7 @@ if(docLang=="ja"||docLang=="de"||docLang=="it"||docLang=="he"||docLang=="es"||do
 WidgetGalleryURL+=docLang;
 }
  
-
+console.log("Gil");
 
 for(i=0;i<elems.length;i++){
 elems[i].removeAttribute("href");
