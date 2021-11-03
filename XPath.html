@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GTO Bootcamp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+      .titles{
+          font-weight: bold;
+          text-decoration: underline;
+          text-decoration-color: royalblue;
+          text-decoration-style: double;
+          padding: 0px 3p;
+      }
+      .double {
+  background-image: linear-gradient(to bottom, red 33%, transparent 33%, transparent 66%, red 66%, red);
+  background-position: 0 1.03em;
+  background-repeat: repeat-x;
+  background-size: 3px 7px;
+          font-weight: bold;
+}
+      .heighlight{
+          background-color: yellow !important;
+          padding: 3px !important;
+          border:2px solid blue !important;
+      }
+      
+/*
+      .scale-image:hover{
+          transform: scale(2);
+          z-index: 9999;
+          margin-top: -40px;
+          margin-left: 40px;
+      }
+*/
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>GTO Bootcamp</h1>
+  <p>Learn, Practice and Make an Impact</p> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">G.T.O Bootcamp </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Intro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Implementation Engineering</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">QA Engineering</a>
+      </li>  
+         <li class="nav-item">
+        <a class="nav-link" href="#">Technical Solutions Engineering</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="#">Sales Engineering</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="#">More Resources</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+
+<div class="container" style="margin-top:30px;width:98%;max-width: 2500px;">
+     <div class="row">
+       <div class="col-sm-12 d-flex justify-content-center">
+    <h2 class="text-justify double">XPath Training</h2>
+         </div>    
+    </div>
+  <div class="row">
+       <div class="col-sm-5">
+           
+           <div class="col-sm-12">
+          <h3 class="titles"> Assignments</h3>
+               <h4>Use Xpath to return the following:</h4>
+            <p>1. The header of the page</p>  
+            <p>2. The publish date of the page and the correct date format</p>
+            <p>3. The content of the page</p>  
+            <p>4. The author of the article</p> 
+            <p>5. The header of the page</p>  
+            <p>6. The main image of the page</p> 
+            <p>7. The URL of the page</p> 
+            <p>8. The first Paragraph starting at the 15th character and ending at the 44th one </p> 
+            <p>9. The word "GTO" if the word "ipsum" appears on the page</p>
+               <div id="OutbrainWidget1_IN" class="col-sm-12">
+      <p>Please insert your XPath code here</p>
+
+        <textarea id="Xpath" style="width: 100%;height: 150px;" name="Xpath" >  </textarea>
+                 
+<button onclick="GetResult()" type="button" class="btn btn-primary">Check XPpath Code</button>
+<button onclick="Reset()" type="button" class="btn btn-warning">Reset</button>
+      </div>
+    </div>
+           <br>
+           <div class="col-sm-12">
+          <h3 class="titles"> Xpath Cheatsheet</h3>
+            <img class="img-thumbnail scale-image" src="Xpath.kpeg.jpg">  
+           </div>
+      </div>
+    <div class="col-sm-7 border border-primary">
+        
+        <div class="w3-row w3-padding-64">
+      <h1 class="w3-container">GTO News</h1>
+      </div>
+    	<div id="author-byline">
+				<p class="byline">By <span>Julia Verplank</span></p>	
+                <div class="author-flyout" data-author-name="Julia Verplank">
+				<p class="byline-date w3-container">
+		December 7, 2020 <span class="separator">|</span> 7:14am
+                    <span class="separator">|</span> <a href="#" class="updated-post-date">Updated <span>December 7, 2020 | 8:07am</span></a>
+                    </p></div>
+    <div class="w3-twothird w3-container">
+      <h2 class="w3-text-teal">First Header</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <img class="img-thumbnail" src="1030_LL_domestic_cats-1028x579.jpg"/>
+         <h2 class="w3-text-teal">Second Header</h2>
+      <p>Suspendisse tincidunt, elit non ultrices vulputate, sem sapien laoreet nunc, sit amet lobortis felis magna ut nisi. Cras cursus lectus tellus, a auctor metus finibus et. Fusce id congue ipsum. Duis faucibus arcu velit, sed luctus eros tempor eget. Quisque id diam dolor. Vestibulum at facilisis nulla, nec mollis libero. Morbi consequat ut libero porttitor rutrum. Nulla facilisi. Phasellus et posuere sapien, tristique dictum nibh. Aliquam ac risus et sapien condimentum ultricies. Cras dictum enim tellus, id tempor urna fringilla sed. Vestibulum vitae turpis mi. Quisque gravida eleifend orci, at pellentesque enim condimentum in. In hendrerit sem in lorem tristique cursus. Proin molestie vitae odio vitae tempus.
+
+</p>
+        <ul>
+<li>Mauris vitae tellus consequat, egestas mauris sed, dictum est.</li>
+<li>Aliquam egestas mauris vel lobortis laoreet.</li>
+<li>Suspendisse tincidunt lorem a augue accumsan scelerisque.</li>
+<li>Nulla volutpat sapien cursus pulvinar consectetur.</li>
+<li>Nulla blandit neque vitae lectus viverra efficitur.</li>
+</ul>
+       
+    </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+          
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+ 
+</div>
+<script>
+function GetResult(){
+  
+    if(document.getElementsByClassName("heighlight").length>0){
+   Reset();}
+ let path=document.getElementById("Xpath").value;
+     console.log(path);
+   var elem = getElementByXpath(path);
+    console.log(elem);
+    elem.classList.add("heighlight");
+
+}    
+    
+    function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    
+}
+    function Reset(){
+        var tmp = document.getElementsByClassName("heighlight");
+        for(i=0;i<=tmp.length;i++){
+            tmp[i].classList.remove("heighlight");
+        }
+    }
+</script>
+</body>
+</html>

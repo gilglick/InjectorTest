@@ -1,0 +1,137 @@
+@media screen and (max-width: 600px) {
+	#outbrainDiv1 {
+		overflow: scroll;
+		max-height: 250px;
+	}
+}
+
+button.ob_injector {
+	overflow: hidden;
+}
+
+button.ob_injector:focus {
+	outline: none !important;
+}
+
+button.ob_injector span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+button.ob_injector span:after {
+	content: " >> ";
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+button.ob_injector:hover span {
+	padding-right: 25px;
+}
+
+button.ob_injector:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+.alert_Widget {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Patua One, cursive;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.hover_ob,.hover_ob2 {
+	position: relative;
+	opacity: 0.9;
+}
+
+.hover_ob:after {
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	border-radius: 5px;
+	border: 4px dashed red !important;
+	background-color: #fbb034;
+	background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%) !important;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 5px !important;
+}
+
+.hover_ob2:after {
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	z-index: -1;
+	content: "";
+	border-radius: 5px;
+	border: 4px dashed blue !important;
+	background-color: #fbb034;
+	background-color: #f6fba2;
+	background-image: linear-gradient(315deg, #f6fba2 0%, #20ded3 74%)!important;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 5px !important;
+}
+
+
+	
+input[type="radio"].ob_injector{
+    background-color: initial !important;
+    cursor: default !important;
+    appearance: radio !important;
+    box-sizing: border-box !important;
+    margin: 3px 3px 0px 5px !important;
+    padding: initial !important;
+    border: initial !important;
+	margin-right: 5px !important;
+	margin-top: 10px !important;
+
+}
+
+#alertWidgets{
+width:25%;
+height:max-content;
+background-color:rgba(244, 67, 54, .87);
+color: #EFF1F1;
+position:fixed; 
+left:10px;
+bottom:10px;
+border:1px solid #d2d3d3;
+z-index:999999999;
+padding:1%;
+}
+
+#outbrainDiv1{
+	direction: ltr;
+	width: 285px;
+	height: max-content;
+	position: fixed;
+	background-color: #EF8421;
+	bottom: 10%;
+	right: 0px;
+	z-index: 99999999;
+	color: rgb(51, 63, 72) !important;
+	font-size: 14px;
+	font-family: "Patua One", cursive;
+	font-weight: bold;
+	border: 4px solid rgb(51, 63, 72);
+	border-radius: 8px;
+	max-width: 330px;
+}
