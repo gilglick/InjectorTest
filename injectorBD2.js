@@ -24,15 +24,15 @@ var docLang="";
 
 if(localStorage.getItem("OBlang")){
    docLang=localStorage.getItem("OBlang");
-    // console.log(localStorage.getItem("OBlang"));
+    console.log(localStorage.getItem("OBlang"));
    }
 else if(document.documentElement.lang){
     docLang=document.documentElement.lang;
-    // console.log(document.documentElement.lang);
+    console.log(document.documentElement.lang);
 }
 else if(document.querySelector("[http-equiv=Content-Language]")){
     docLang=document.querySelector("[http-equiv=Content-Language]").content;
-    // console.log(document.querySelector("[http-equiv=Content-Language]").content);
+    console.log(document.querySelector("[http-equiv=Content-Language]").content);
 
 }
         
@@ -54,7 +54,6 @@ if(docLang=="ja"||docLang=="de"||docLang=="it"||docLang=="he"||docLang=="es"||do
 WidgetGalleryURL+=docLang;
 }
  
-console.log("Gil");
 
 for(i=0;i<elems.length;i++){
 elems[i].removeAttribute("href");
