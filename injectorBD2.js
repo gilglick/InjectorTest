@@ -162,11 +162,12 @@ function CloseWindow() {
   document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
-//var script2 = document.createElement("script");
+var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
-//script2.type = 'text/javascript'; script2.async = 'async';
-//script2.src = '//widgets.outbrain.com/outbrain.js';
-//document.body.appendChild(script2);
+script2.type = 'text/javascript'; script2.async = 'async';
+script2.src = '//widgets.outbrain.com/outbrain.js';
+script2.id = 'MENI';
+document.body.appendChild(script2);
 
 outbrainDiv1.id = "outbrainDiv1";
 outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
