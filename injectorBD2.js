@@ -162,11 +162,11 @@ function CloseWindow() {
   document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
-var script2 = document.createElement("script");
+//var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
-script2.type = 'text/javascript'; script2.async = 'async';
-script2.src = '//widgets.outbrain.com/outbrain.js';
-document.body.appendChild(script2);
+//script2.type = 'text/javascript'; script2.async = 'async';
+//script2.src = '//widgets.outbrain.com/outbrain.js';
+//document.body.appendChild(script2);
 
 outbrainDiv1.id = "outbrainDiv1";
 outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
@@ -234,7 +234,9 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
 dragElement(document.getElementById("outbrainDiv1"));
+
 function ReloadWidget(e) {
   dragElement(document.getElementById("outbrainDiv1"));
   var elems3;
@@ -254,6 +256,7 @@ function ReloadWidget(e) {
   window.onmouseout = null;
   document.onclick = null;
 }
+
 function dis() {
   var cprm = document.getElementById("customPRM");
   var cprmInput = document.getElementById("CustomPermalink");
