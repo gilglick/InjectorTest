@@ -90,6 +90,7 @@ function GetParams() {
     document.getElementById("innerSelectionDiv2").style.display = "none";
   }
 }
+
 function ChooseNew(a) {
   dragElement(document.getElementById("outbrainDiv1"));
   var elems2 = document.getElementsByClassName("hover_ob2");
@@ -157,14 +158,18 @@ function GetValues(element) {
 }
 
 function CloseWindow() {
-  document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
-
-  var x = document.getElementById("outbrainDiv1");
-  document.body.removeChild(x);
+  document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");ƒ
+  document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
-var script2 = document.createElement("script"); script2.type = 'text/javascript'; script2.async = 'async';
-script2.src = '//widgets.outbrain.com/outbrain.js'; document.body.appendChild(script2); var outbrainDiv1 = document.createElement("div");
-outbrainDiv1.id = "outbrainDiv1"; outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
+
+var script2 = document.createElement("script");
+var outbrainDiv1 = document.createElement("div");
+script2.type = 'text/javascript'; script2.async = 'async';
+script2.src = '//widgets.outbrain.com/outbrain.js';
+document.body.appendChild(script2);
+
+outbrainDiv1.id = "outbrainDiv1";
+outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
 <h1  class="ob_injector" style="text-align: left;text-decoration: underline;color:rgb(51, 63, 72) !important;margin:5px 0px 0px 0px;font-family:Patua One, cursive; font-size:18px;position:relative;line-height:18px">Widget Injector<span id="OBamelia" class="ob_injector" style="background: url(https://widgets.outbrain.com/images/widgetIcons/ob_logo_16x16@2x.png) no-repeat center top;width: 30px;height: 50px;margin-bottom: -2px;background-size: 30px 50px;position: absolute;top: 0px;right: 0px;"></span></h1><div class="ob_injector" style="text-align: left;position:relative; top:6px; width:100%;"><div class="ob_injector"  id="innerSelectionDiv" style="width:100%;height:max-content;">
 <br><input checked class="ob_injector" onchange="dis()" type="radio" id="defaultPRM" name="url" value="${getPermalink}"><label class="ob_injector" for="defaultPRM" style="color: rgb(51, 63, 72)">Default Permalink</label><br><input class="ob_injector" onchange="dis()" type="radio" id="tamsPRM" name="url" value="${WidgetGalleryURL}"><label class="ob_injector" for="tamsPRM" style="color: rgb(51, 63, 72)">Widget Gallery Permalink</label><br><input onchange="dis()" class="ob_injector" type="radio" id="customPRM" name="url" value=""><label class="ob_injector" for="customPRM" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Custom Permalink</label>
 <br><input  placeholder="Insert permalink" onchange="ob_val()" value="" data-src="${getPermalink}" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;margin-top: 10px;display:none;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive; font-weight:bold" type="text" id="CustomPermalink" name="CustomPermalink"><label class="ob_injector"  style="display:none;margin-bottom: 10px;" for="positionSelector">Position Selector:</label><input class="ob_injector"   style="display:none; width:100%;font-family:Patua One, cursive;font-size:16px; font-weight:bold" type="text" id="positionSelector" name="positionSelector"><label class="ob_injector" style="color: rgb(51, 63, 72);margin: 10px 0px; display: block;" for="widgetToInject">Widget To Inject:</label><input placeholder="Insert widegt ID" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive;font-weight:bold" type="text" id="widgetToInject" name="widgetToInject">
@@ -183,22 +188,24 @@ outbrainDiv1.id = "outbrainDiv1"; outbrainDiv1.classList.add("ob_injector"); out
 <label for="sourceFeatures"> Source </label> <input type="text" id="sourceColorinput" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" name="sourceFeatures" placeholder="Size"> <br>
 <div class="ob_injector"  id="innerSelectionDiv2" style="width:100%;height:max-content;"><button onclick="SetColors()" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important">Change Fonts</button></div></div>
 <button  class="ob_injector"  id="closebtn" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="CloseWindow()"><span class="ob_injector">Close Window</span></button>`;
-document.body.appendChild(outbrainDiv1); GetParams();
+
+document.body.appendChild(outbrainDiv1);
+GetParams();
 var alert = document.createElement("div");
 alert.id = "alertWidgets";
 alert.classList.add("ob_injector");
+
 if (Ob_Widgets.length > 0) {
   alert.innerHTML = `<p class="alert_Widget ob_injector" >Select the position of ${Ob_Widgets[0]}</p>`;
   document.body.appendChild(alert);
   Ob_Widgets2.push(Ob_Widgets.shift());
 }
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById("OBamelia")) {
-
     document.getElementById("OBamelia").onmousedown = dragMouseDown;
   } else {
-
     elmnt.onmousedown = dragMouseDown;
   }
   function dragMouseDown(e) {
