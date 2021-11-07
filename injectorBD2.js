@@ -33,8 +33,7 @@ if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || 
 
 
 for (i = 0; i < elems.length; i++) {
-  elems[i].removeAttribute("href");
-  elems[i].removeAttribute("onclick");
+  removeAttributes(elems[i], 'href', 'onclick');
 }
 var a = document.getElementById("addWidget");
 var b = document.getElementById("closebtn");
@@ -90,6 +89,10 @@ if (Ob_Widgets.length > 0) {
 dragElement(document.getElementById("outbrainDiv1"));
 
 ChooseNew();
+
+function removeAttributes(element, ...attrs) {
+  attrs.forEach(attr => element.removeAttribute(attr))
+}
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
