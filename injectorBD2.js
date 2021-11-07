@@ -286,7 +286,7 @@ function ob_val() {
 
 function ShowFeatures() {
   let x = document.getElementById("feedFeatures");
-  x.style.display == none ? x.style.display = "block" : x.style.display = "none";
+  x.style.display == "none" ? x.style.display = "block" : x.style.display = "none";
   // if (x.style.display == "none") {
   //   x.style.display = "block";
   // }
