@@ -295,10 +295,35 @@ function ShowFeatures() {
 
 }
 function SetColors() {
-  setInterval(function() {
-    SetColors1();
-    // This will be executed every 5 seconds
-  }, 5000); // 5000 milliseconds
+  if(document.getElementById("textColorinput") != ''){
+    setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach(element => 
+        { if (element.shadowRoot != null) { 
+          if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
+              element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
+              .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }
+  if(document.getElementById("sourceColorinput").value != ''){
+    setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }
+  if(document.getElementById("textSizeinput").value != ''){
+    setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }
+  if(document.getElementById("sourceSizeinput").value != ''){
+    setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }
+
   // document.querySelectorAll('.OUTBRAIN').forEach(element => 
   //   { if (element.shadowRoot != null) { 
   //     if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
@@ -307,15 +332,14 @@ function SetColors() {
   // document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
   // document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
   // document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
-
 }
-function SetColors1(){
-  document.querySelectorAll('.OUTBRAIN').forEach(element => 
-    { if (element.shadowRoot != null) { 
-      if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
-          element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
-          .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
-  document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
-  document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
-  document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
-}
+// function SetColors1(){
+//   document.querySelectorAll('.OUTBRAIN').forEach(element => 
+//     { if (element.shadowRoot != null) { 
+//       if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
+//           element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
+//           .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
+//   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
+//   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
+//   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
+// }
