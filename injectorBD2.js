@@ -34,6 +34,7 @@ if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || 
 for (i = 0; i < elems.length; i++) {
   removeAttributes(elems[i], 'href', 'onclick');
 }
+
 var addWidgetButton = document.getElementById("addWidget");
 var closeWindowButton = document.getElementById("closebtn");
 if (addWidgetButton != null) {
@@ -295,7 +296,7 @@ function ShowFeatures() {
 }
 function SetColors() {
   setInterval(function() {
-    SetColors1
+    SetColors1();
     // This will be executed every 5 seconds
   }, 5000); // 5000 milliseconds
   // document.querySelectorAll('.OUTBRAIN').forEach(element => 
