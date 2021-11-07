@@ -15,7 +15,6 @@ var ob_q;
 if (localStorage.getItem("OBlang")) {
   docLang = localStorage.getItem("OBlang");
   //console.log(localStorage.getItem("OBlang"));
-  //dds
 }
 else if (document.documentElement.lang) {
   docLang = document.documentElement.lang;
@@ -33,29 +32,32 @@ if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || 
 
 
 for (i = 0; i < elems.length; i++) {
-  elems[i].removeAttribute("href");
-  elems[i].removeAttribute("onclick");
+  removeAttributes(elems[i], 'href', 'onclick');
+  //elems[i].removeAttribute("href");
+  //elems[i].removeAttribute("onclick");
 }
-var a = document.getElementById("addWidget");
-var b = document.getElementById("closebtn");
-if (a != null) {
-  a.setAttribute("onclick", "GetValues(ob_q)");
+var addWidgetButton = document.getElementById("addWidget");
+var closeWindowButton = document.getElementById("closebtn");
+if (addWidgetButton != null) {
+  addWidgetButton.setAttribute("onclick", "GetValues(ob_q)");
 }
-if (b != null) {
-  b.setAttribute("onclick", "CloseWindow()");
+if (closeWindowButton != null) {
+  closeWindowButton.setAttribute("onclick", "CloseWindow()");
 }
 
 loadCSS("https://rubgroup73.github.io/InjectorTest/styles.css", "styleHover");
 
 var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
-script2.type = 'text/javascript'; script2.async = 'async';
+script2.type = 'text/javascript';
+script2.async = 'async';
 script2.src = '//widgets.outbrain.com/outbrain.js';
 script2.id = 'MENI';
 document.body.appendChild(script2);
 
 outbrainDiv1.id = "outbrainDiv1";
-outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
+outbrainDiv1.classList.add("ob_injector");
+outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
 <h1  class="ob_injector" style="text-align: left;text-decoration: underline;color:rgb(51, 63, 72) !important;margin:5px 0px 0px 0px;font-family:Patua One, cursive; font-size:18px;position:relative;line-height:18px">Widget Injector<span id="OBamelia" class="ob_injector" style="background: url(https://widgets.outbrain.com/images/widgetIcons/ob_logo_16x16@2x.png) no-repeat center top;width: 30px;height: 50px;margin-bottom: -2px;background-size: 30px 50px;position: absolute;top: 0px;right: 0px;"></span></h1><div class="ob_injector" style="text-align: left;position:relative; top:6px; width:100%;"><div class="ob_injector"  id="innerSelectionDiv" style="width:100%;height:max-content;">
 <br><input checked class="ob_injector" onchange="dis()" type="radio" id="defaultPRM" name="url" value="${getPermalink}"><label class="ob_injector" for="defaultPRM" style="color: rgb(51, 63, 72)">Default Permalink</label><br><input class="ob_injector" onchange="dis()" type="radio" id="tamsPRM" name="url" value="${WidgetGalleryURL}"><label class="ob_injector" for="tamsPRM" style="color: rgb(51, 63, 72)">Widget Gallery Permalink</label><br><input onchange="dis()" class="ob_injector" type="radio" id="customPRM" name="url" value=""><label class="ob_injector" for="customPRM" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Custom Permalink</label>
 <br><input  placeholder="Insert permalink" onchange="ob_val()" value="" data-src="${getPermalink}" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;margin-top: 10px;display:none;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive; font-weight:bold" type="text" id="CustomPermalink" name="CustomPermalink"><label class="ob_injector"  style="display:none;margin-bottom: 10px;" for="positionSelector">Position Selector:</label><input class="ob_injector"   style="display:none; width:100%;font-family:Patua One, cursive;font-size:16px; font-weight:bold" type="text" id="positionSelector" name="positionSelector"><label class="ob_injector" style="color: rgb(51, 63, 72);margin: 10px 0px; display: block;" for="widgetToInject">Widget To Inject:</label><input placeholder="Insert widegt ID" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive;font-weight:bold" type="text" id="widgetToInject" name="widgetToInject">
@@ -72,7 +74,7 @@ outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href=
 <div class="ob_injector" id="feedFeatures">
 <label for="titleFeatures"> Title</label> <input type="text" id="textColorinput" name="textFeatures" placeholder="Color"><input type="text" id="textSizeinput" name="textFeatures" placeholder="Size"> <br>
 <label for="sourceFeatures"> Source </label> <input type="text" id="sourceColorinput" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" name="sourceFeatures" placeholder="Size"> <br>
-<div class="ob_injector"  id="innerSelectionDiv2" style="width:100%;height:max-content;"><button onclick="SetColors()" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important">Change Fonts</button></div></div>
+<div class="ob_injector"  id="innerSelectionDiv2" style="width:100%;height:max-content;"><button onclick="SetColors()" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important">Apply</button></div></div>
 <button  class="ob_injector"  id="closebtn" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="CloseWindow()"><span class="ob_injector">Close Window</span></button>`;
 
 document.body.appendChild(outbrainDiv1);
@@ -90,6 +92,10 @@ if (Ob_Widgets.length > 0) {
 dragElement(document.getElementById("outbrainDiv1"));
 
 ChooseNew();
+
+function removeAttributes(element, ...attrs) {
+  attrs.forEach(attr => element.removeAttribute(attr))
+}
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -280,59 +286,37 @@ function ob_val() {
 
 function ShowFeatures() {
   let x = document.getElementById("feedFeatures");
-
-  if (x.style.display == "none") {
-    x.style.display = "block";
-  }
-
-  else {
-    x.style.display = "none"
-  }
+  x.style.display == none ? x.style.display = "block" : x.style.display = "none";
+  // if (x.style.display == "none") {
+  //   x.style.display = "block";
+  // }
+  // else {
+  //   x.style.display = "none"
+  // }
 
 }
 function SetColors() {
+  setInterval(function() {
+    SetColors1
+    // This will be executed every 5 seconds
+  }, 5000); // 5000 milliseconds
+  // document.querySelectorAll('.OUTBRAIN').forEach(element => 
+  //   { if (element.shadowRoot != null) { 
+  //     if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
+  //         element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
+  //         .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
+  // document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
+  // document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
+  // document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
 
-
-  //         document.querySelectorAll('.OUTBRAIN').forEach(element => {if(element.shadowRoot != null){if(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null){console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelector('.ob-rec-text').style.color =  document.getElementById("textSizeinput").value)}}});
-  //     document.querySelectorAll('.OUTBRAIN').forEach(element => {if(element.shadowRoot != null){if(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null){console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelector('.ob-rec-text').style.color = document.getElementById("textColorinput").value)}}});
-
-  //  let widgets=document.querySelector('.OUTBRAIN').querySelector('.ob-widget').querySelectorAll('.OUTBRAIN'); 
-  //     for(i=0;i<widgets.length;i++){
-  //         if( widgets[i].shadowRoot != null &&  widgets[i].shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null && widgets[i].shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')!=null){
-  //  let titles=widgets[i].shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text');
-  //                for(j=0;j<titles.length;j++){
-  //         titles[j].style.color=document.getElementById("textColorinput").value;
-  //         titles[j].style.fontSize=document.getElementById("textSizeinput").value;
-  //         }
-  //         }
-  //            if(widgets[i].shadowRoot != null &&  widgets[i].shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null && widgets[i].shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source')!=null){ 
-  //  let sources = widgets[i].shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source');
-  //                 for(k=0;k<sources.length;k++){
-  //         sources[k].style.color=document.getElementById("sourceColorinput").value;
-  //         sources[k].style.fontSize=document.getElementById("sourceSizeinput").value;
-  //            }
-  //            }
-  //  let headers = widgets[i].shadowRoot.querySelector('.ob-widget').querySelectorAll('.ob-widget-header'); 
-
-  //     }
-
-  //     var a= document.getElementsByClassName("OUTBRAIN");//i
-  //     var b= a.querySelector('.ob-widget');
-  //     var c = b.getElementsByClassName("OUTBRAIN").shadowRoot;//j
-
-  //     for(i=0;i<a.length;i++){
-
-  //         for(i=0;i<c.length;i++){
-
-  //     var titles= c.querySelectorAll('.ob-rec-text');//k
-  //     var sources = c.querySelectorAll('.ob-rec-source');
-
-  document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.color = document.getElementById("textColorinput").value)) } } });
+}
+function SetColors1(){
+  document.querySelectorAll('.OUTBRAIN').forEach(element => 
+    { if (element.shadowRoot != null) { 
+      if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
+          element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
+          .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
-
-
-
-
 }
