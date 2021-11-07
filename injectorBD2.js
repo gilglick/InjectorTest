@@ -9,6 +9,8 @@ var isGallery;
 var Ob_Widgets = []; var Ob_Widgets2 = []; Ob_Widgets3 = [];
 var counter = 0;
 var elems = document.body.getElementsByTagName("*");
+var ob_q;
+
 
 if (localStorage.getItem("OBlang")) {
   docLang = localStorage.getItem("OBlang");
@@ -45,8 +47,8 @@ if (b != null) {
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\\[\\]]/g, '\\$&');
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-    results = regex.exec(url);
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+  results = regex.exec(url);
   if (!results) return null;
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\\+/g, ' '));
@@ -117,7 +119,6 @@ function ChooseNew(a) {
     }
   };
 };
-var ob_q;
 
 function GetValues(element) {
   if (element.classList.contains("hover_ob2")) { element.classList.remove("hover_ob2"); }
@@ -162,12 +163,12 @@ function CloseWindow() {
   document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
-var script2 = document.createElement("script");
+//var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
 script2.type = 'text/javascript'; script2.async = 'async';
-script2.src = '//widgets.outbrain.com/outbrain.js';
-script2.id = 'MENI';
-document.body.appendChild(script2);
+//script2.src = '//widgets.outbrain.com/outbrain.js';
+//script2.id = 'MENI';
+//document.body.appendChild(script2);
 
 outbrainDiv1.id = "outbrainDiv1";
 outbrainDiv1.classList.add("ob_injector"); outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
