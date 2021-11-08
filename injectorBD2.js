@@ -70,7 +70,7 @@ outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=P
 <button   class="ob_injector"  id="addWidget" style="display:inline-block;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;color:rgb(51, 63, 72)!important; height:60px;width: 44%;background-color: #EF8421;font-family: Patua One, cursive;font-size: 14px;font-weight: bold;" onclick="GetValues(ob_q)"><span class="ob_injector">Add widget</span></button><button  class="ob_injector"  id="chooseNew" style="display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important" onclick="ChooseNew()"><span class="ob_injector">Choose Another Location</span></button></div>
 <br><button  class="ob_injector"  id="reloadWidget" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="ReloadWidget(ob_q)"><span class="ob_injector">Reload Widget</span></button><br>
 <button  class="ob_injector"  id="showFeedfeatures" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="ShowFeatures()"><span class="ob_injector">Change Fonts</span></button><br>
-<div class="ob_injector" id="feedFeatures">
+<div class="ob_injector" id="feedFeatures" style="display: none;">
 <label for="titleFeatures"> Title</label> <input type="text" id="textColorinput" name="textFeatures" placeholder="Color"><input type="text" id="textSizeinput" name="textFeatures" placeholder="Size"> <br>
 <label for="sourceFeatures"> Source </label> <input type="text" id="sourceColorinput" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" name="sourceFeatures" placeholder="Size"> <br>
 <div class="ob_injector"  id="innerSelectionDiv2" style="width:100%;height:max-content;"><button onclick="SetColors()" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important">Apply</button></div></div>
@@ -310,7 +310,10 @@ function SetColors() {
   }
   if(document.getElementById("sourceColorinput").value != ''){
     var refreshSourceColor = setInterval(function() {
-      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
+      document.querySelectorAll('.OUTBRAIN').forEach(element =>
+         { if (element.shadowRoot != null) {
+            if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) {
+              element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value) } } });
       // This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
   }else{
@@ -318,7 +321,10 @@ function SetColors() {
   }
   if(document.getElementById("textSizeinput").value != ''){
     var refreshTitleSize = setInterval(function() {
-      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
+      document.querySelectorAll('.OUTBRAIN').forEach(element => 
+        { if (element.shadowRoot != null) {
+            if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) {
+              element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value) } } });
       // This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
   }else{
@@ -327,7 +333,9 @@ function SetColors() {
   }
   if(document.getElementById("sourceSizeinput").value != ''){
     var refreshSourceSize = setInterval(function() {
-      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
+      document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) {
+         if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) {
+          element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value) } } });
       // This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
   }else{
