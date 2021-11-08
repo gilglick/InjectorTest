@@ -295,7 +295,7 @@ function ShowFeatures() {
 
 }
 function SetColors() {
-  if(document.getElementById("textColorinput") != ''){
+  if(document.getElementById("textColorinput").value != ''){
     var refreshTitleColor = setInterval(function() {
       document.querySelectorAll('.OUTBRAIN').forEach(element => 
         { if (element.shadowRoot != null) { 
@@ -323,6 +323,7 @@ function SetColors() {
     }, 5000); // 5000 milliseconds
   }else{
     clearInterval(refreshTitleSize);
+    console.log("interval" + refreshTitleSize);
   }
   if(document.getElementById("sourceSizeinput").value != ''){
     var refreshSourceSize = setInterval(function() {
@@ -331,7 +332,6 @@ function SetColors() {
     }, 5000); // 5000 milliseconds
   }else{
     clearInterval(refreshSourceSize);
-
   }
 
   // document.querySelectorAll('.OUTBRAIN').forEach(element => 
