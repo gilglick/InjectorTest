@@ -320,7 +320,7 @@ function SetColorsSL() {
       clearInterval(refreshTitleColor);
     }
     // This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
   var refreshSourceColor = setInterval(function () {
     if (document.getElementById("sourceColorinput").value != '') {
@@ -335,7 +335,7 @@ function SetColorsSL() {
       clearInterval(refreshSourceColor);
     }
     // This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
   var refreshTitleSize = setInterval(function () {
     if (document.getElementById("textSizeinput").value != '') {
@@ -349,7 +349,7 @@ function SetColorsSL() {
     } else {
       clearInterval(refreshTitleSize);
     }// This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
   var refreshSourceSize = setInterval(function () {
     if (document.getElementById("sourceSizeinput").value != '') {
@@ -364,7 +364,7 @@ function SetColorsSL() {
       clearInterval(refreshSourceSize);
     }
     // This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
 
 }
@@ -378,7 +378,7 @@ function SetColorsSF() {
       clearInterval(refreshTitleColor);
     }
     // This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
   var refreshSourceColor = setInterval(function () {
     if (document.getElementById("sourceColorinput").value != '') {
@@ -386,7 +386,7 @@ function SetColorsSF() {
     } else {
       clearInterval(refreshSourceColor);
     }// This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
   var refreshTitleSize = setInterval(function () {
     if (document.getElementById("textSizeinput").value != '') {
@@ -395,7 +395,7 @@ function SetColorsSF() {
       clearInterval(refreshTitleSize);
     }
     // This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 
   var refreshSourceSize = setInterval(function () {
     if (document.getElementById("sourceSizeinput").value != '') {
@@ -403,5 +403,5 @@ function SetColorsSF() {
     } else {
       clearInterval(refreshSourceSize);
     }// This will be executed every 5 seconds
-  }, 3000); // 3000 milliseconds
+  }, 2000); // 2000 milliseconds
 }
