@@ -297,56 +297,61 @@ function ShowFeatures() {
 function SetColors() {
   SetColorsSF();
   SetColorsSL();
-
 }
 
 function SetColorsSL() {
-  if(document.getElementById("textColorinput").value != ''){
+  
     var refreshTitleColor = setInterval(function() {
+      if(document.getElementById("textColorinput").value != ''){
       document.querySelectorAll('.OUTBRAIN').forEach(element => 
         { if (element.shadowRoot != null) { 
           if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
               element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
               .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
+          }else{
+            clearInterval(refreshTitleColor);
+            console.log("here");
+          }
       // This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
-  }
-  else{
-    clearInterval(refreshTitleColor);
-  }
-  if(document.getElementById("sourceColorinput").value != ''){
+  
+
     var refreshSourceColor = setInterval(function() {
+      if(document.getElementById("sourceColorinput").value != ''){
       document.querySelectorAll('.OUTBRAIN').forEach(element =>
          { if (element.shadowRoot != null) {
             if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) {
               element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value) } } });
+            }else{
+              clearInterval(refreshSourceColor);
+              console.log("here1");
+            }
       // This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
-  }else{
-    clearInterval(refreshSourceColor);
-  }
-  if(document.getElementById("textSizeinput").value != ''){
+  
     var refreshTitleSize = setInterval(function() {
+      if(document.getElementById("textSizeinput").value != ''){
       document.querySelectorAll('.OUTBRAIN').forEach(element => 
         { if (element.shadowRoot != null) {
             if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) {
               element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value) } } });
-      // This will be executed every 5 seconds
+            }else{
+              clearInterval(refreshTitleSize);
+              console.log("here2");
+            }// This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
-  }else{
-    clearInterval(refreshTitleSize);
-    console.log("interval" + refreshTitleSize);
-  }
-  if(document.getElementById("sourceSizeinput").value != ''){
+
     var refreshSourceSize = setInterval(function() {
+      if(document.getElementById("sourceSizeinput").value != ''){
       document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) {
          if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) {
           element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value) } } });
-      // This will be executed every 5 seconds
+         }else{
+          clearInterval(refreshSourceSize);
+         }
+         // This will be executed every 5 seconds
     }, 5000); // 5000 milliseconds
-  }else{
-    clearInterval(refreshSourceSize);
-  }
+
 
 }
 
