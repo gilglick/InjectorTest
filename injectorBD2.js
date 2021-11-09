@@ -297,8 +297,9 @@ function ShowFeatures() {
 function SetColors() {
   let divsArr =  document.querySelectorAll('.OUTBRAIN');
   let flag = false;
+  console.log(divsArr);
+
   for(let i=0;i<divsArr.length;i++){
-    console.log(divsArr);
     if(divsArr[i].getAttribute('data-widget-id').includes('FMS')){
       flag = true;
       break;
