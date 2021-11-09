@@ -295,8 +295,8 @@ function ShowFeatures() {
 }
 
 function SetColors() {
-  let divsArr =  document.querySelectorAll('.OUTBRAIN');
-  let flag = false;
+  var divsArr =  document.querySelectorAll('.OUTBRAIN');
+  var flag = false;
   console.log(divsArr);
 
   for(let i=0;i<divsArr.length;i++){
