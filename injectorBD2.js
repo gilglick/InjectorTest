@@ -51,7 +51,6 @@ var outbrainDiv1 = document.createElement("div");
 script2.type = 'text/javascript';
 script2.async = 'async';
 script2.src = '//widgets.outbrain.com/outbrain.js';
-script2.id = 'MENI';
 document.body.appendChild(script2);
 
 outbrainDiv1.id = "outbrainDiv1";
@@ -73,7 +72,7 @@ outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=P
 <div class="ob_injector" id="feedFeatures" style="display: none;">
 <label for="titleFeatures" class="ob_injector"> Title</label> <input type="text" class="ob_injector" id="textColorinput" name="textFeatures" placeholder="Color"><input type="text" id="textSizeinput" class="ob_injector" name="textFeatures" placeholder="Size"> <br>
 <label for="sourceFeatures" class="ob_injector"> Source </label> <input type="text" id="sourceColorinput" class="ob_injector" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" class="ob_injector" name="sourceFeatures" placeholder="Size"> <br>
-<div class="ob_injector"  id="innerSelectionDiv2" style="width:100%;height:max-content;"><button lass="ob_injector" onclick="SetColors()" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 80%;left: 50%;transform: translateX(10%);background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72) !important">Apply</button></div></div>
+<div class="ob_injector"  id="innerSelectionDiv2" style="width:100%;height:max-content;"><button class="ob_injector" onclick="SetColors()" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 80%;left: 50%;transform: translateX(10%);background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72) !important">Apply</button></div></div>
 <button  class="ob_injector"  id="closebtn" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="CloseWindow()"><span class="ob_injector">Close Window</span></button>`;
 
 document.body.appendChild(outbrainDiv1);
@@ -294,7 +293,14 @@ function ShowFeatures() {
   // }
 
 }
+
 function SetColors() {
+  SetColorsSF();
+  SetColorsSL();
+
+}
+
+function SetColorsSL() {
   if(document.getElementById("textColorinput").value != ''){
     var refreshTitleColor = setInterval(function() {
       document.querySelectorAll('.OUTBRAIN').forEach(element => 
@@ -343,13 +349,42 @@ function SetColors() {
   }
 
 }
-// function SetColors1(){
-//   document.querySelectorAll('.OUTBRAIN').forEach(element => 
-//     { if (element.shadowRoot != null) { 
-//       if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { 
-//           element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text')
-//           .forEach(text => text.style.color = document.getElementById("textColorinput").value) } } });
-//   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.color = document.getElementById("sourceColorinput").value)) } } });
-//   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => text.style.fontSize = document.getElementById("textSizeinput").value)) } } });
-//   document.querySelectorAll('.OUTBRAIN').forEach(element => { if (element.shadowRoot != null) { if (element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container') != null & !element.shadowRoot.firstChild.className.includes("on-image")) { console.log(element.shadowRoot.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => text.style.fontSize = document.getElementById("sourceSizeinput").value)) } } });
-// }
+
+function SetColorsSF(){
+  if(document.getElementById("textColorinput").value != ''){
+    var refreshTitleColor = setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach((element)=> {if(element.querySelector('.ob-widget') != null) {element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => {text.style.color = document.getElementById("textColorinput").value})}})   
+
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }
+  else{
+    clearInterval(refreshTitleColor);
+  }
+  if(document.getElementById("sourceColorinput").value != ''){
+    var refreshSourceColor = setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach((element)=> {if(element.querySelector('.ob-widget') != null) {element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => {text.style.color = document.getElementById("sourceColorinput").value})}})   
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }else{
+    clearInterval(refreshSourceColor);
+  }
+  if(document.getElementById("textSizeinput").value != ''){
+    var refreshTitleSize = setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach((element)=> {if(element.querySelector('.ob-widget') != null) {element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => {text.style.fontSize = document.getElementById("textSizeinput").value})}})   
+
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }else{
+    clearInterval(refreshTitleSize);
+    console.log("interval" + refreshTitleSize);
+  }
+  if(document.getElementById("sourceSizeinput").value != ''){
+    var refreshSourceSize = setInterval(function() {
+      document.querySelectorAll('.OUTBRAIN').forEach((element)=> {if(element.querySelector('.ob-widget') != null) {element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => {text.style.fontSize = document.getElementById("sourceSizeinput").value})}})   
+      // This will be executed every 5 seconds
+    }, 5000); // 5000 milliseconds
+  }else{
+    clearInterval(refreshSourceSize);
+  }
+}
