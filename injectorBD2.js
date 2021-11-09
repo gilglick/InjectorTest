@@ -298,7 +298,7 @@ function SetColors() {
   let divsArr =  document.querySelectorAll('.OUTBRAIN');
   let flag = false;
   for(let i=0;i<divsArr.length;i++){
-    if(divsArr[i].includes('FMS')){
+    if(divsArr[i].getAttribute('data-widget-id').includes('FMS')){
       break;
       flag = true;
     }
