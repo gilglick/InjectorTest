@@ -285,28 +285,21 @@ function ob_val() {
 function ShowFeatures() {
   let x = document.getElementById("feedFeatures");
   x.style.display == "none" ? x.style.display = "block" : x.style.display = "none";
-  // if (x.style.display == "none") {
-  //   x.style.display = "block";
-  // }
-  // else {
-  //   x.style.display = "none"
-  // }
-
 }
 
 function SetColors() {
-  var divsArr =  document.querySelectorAll('.OUTBRAIN');
+  var divsArr = document.querySelectorAll('.OUTBRAIN');
   var flag = false;
 
-  for(let i=0;i<divsArr.length;i++){
-    if(divsArr[i].getAttribute('data-widget-id').includes('FMS')){
+  for (let i = 0; i < divsArr.length; i++) {
+    if (divsArr[i].getAttribute('data-widget-id').includes('FMS')) {
       flag = true;
       break;
     }
   }
-  if(flag){
+  if (flag) {
     SetColorsSL();
-  }else{
+  } else {
     SetColorsSF();
   }
 }
@@ -328,7 +321,6 @@ function SetColorsSL() {
     }
     // This will be executed every 5 seconds
   }, 3000); // 3000 milliseconds
-
 
   var refreshSourceColor = setInterval(function () {
     if (document.getElementById("sourceColorinput").value != '') {
@@ -356,7 +348,6 @@ function SetColorsSL() {
       });
     } else {
       clearInterval(refreshTitleSize);
-      console.log("here2");
     }// This will be executed every 5 seconds
   }, 3000); // 3000 milliseconds
 
@@ -381,37 +372,36 @@ function SetColorsSL() {
 function SetColorsSF() {
 
   var refreshTitleColor = setInterval(function () {
-    if (document.getElementById("textColorinput").value != ''){
+    if (document.getElementById("textColorinput").value != '') {
       document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => { text.style.color = document.getElementById("textColorinput").value }) } })
-    }else{
+    } else {
       clearInterval(refreshTitleColor);
     }
     // This will be executed every 5 seconds
   }, 3000); // 3000 milliseconds
-  
- 
-    var refreshSourceColor = setInterval(function () {
-      if (document.getElementById("sourceColorinput").value != ''){
+
+  var refreshSourceColor = setInterval(function () {
+    if (document.getElementById("sourceColorinput").value != '') {
       document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => { text.style.color = document.getElementById("sourceColorinput").value }) } })
-      }else{
-        clearInterval(refreshSourceColor);
-      }// This will be executed every 5 seconds
-    }, 3000); // 3000 milliseconds
+    } else {
+      clearInterval(refreshSourceColor);
+    }// This will be executed every 5 seconds
+  }, 3000); // 3000 milliseconds
 
-    var refreshTitleSize = setInterval(function () {
-      if (document.getElementById("textSizeinput").value != ''){
+  var refreshTitleSize = setInterval(function () {
+    if (document.getElementById("textSizeinput").value != '') {
       document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => { text.style.fontSize = document.getElementById("textSizeinput").value }) } })
-      }else{
-        clearInterval(refreshTitleSize);
-      }
-      // This will be executed every 5 seconds
-    }, 3000); // 3000 milliseconds
+    } else {
+      clearInterval(refreshTitleSize);
+    }
+    // This will be executed every 5 seconds
+  }, 3000); // 3000 milliseconds
 
-    var refreshSourceSize = setInterval(function () {
-      if (document.getElementById("sourceSizeinput").value != ''){
+  var refreshSourceSize = setInterval(function () {
+    if (document.getElementById("sourceSizeinput").value != '') {
       document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => { text.style.fontSize = document.getElementById("sourceSizeinput").value }) } })
-      }else{
-        clearInterval(refreshSourceSize);
-      }// This will be executed every 5 seconds
-    }, 3000); // 3000 milliseconds
+    } else {
+      clearInterval(refreshSourceSize);
+    }// This will be executed every 5 seconds
+  }, 3000); // 3000 milliseconds
 }
