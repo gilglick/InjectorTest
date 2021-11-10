@@ -4,6 +4,12 @@
 		max-height: 250px;
 	}
 }
+@media screen and (min-width: 601px) {
+	#outbrainDiv1 {
+		overflow: scroll;
+		max-height: 80%;
+	}
+}
 
 button.ob_injector {
 	overflow: hidden;
@@ -137,4 +143,5 @@ padding:1%;
 }
 
 #feedFeatures{
+	text-align: center;
 	display:none;}
