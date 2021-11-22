@@ -144,4 +144,5 @@ padding:1%;
 
 #feedFeatures{
 	text-align: center;
+	transform: translateX(10%);
 	display:none;}
