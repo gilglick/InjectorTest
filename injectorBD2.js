@@ -40,7 +40,7 @@ if (closeWindowButton != null) {
   closeWindowButton.setAttribute("onclick", "CloseWindow()");
 }
 
-loadCSS("https://rubgroup73.github.io/InjectorTest/styles.css", "styleHover");
+loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
 var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
