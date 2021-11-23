@@ -214,22 +214,22 @@ function CloseWindow() {
     document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
-function dragElement(elmnt) {
-    var pos1 = 0,
-        pos2 = 0,
-        pos3 = 0,
-        pos4 = 0;
+function dragElement(element) {
+    var posX1 = 0,
+        posY1 = 0,
+        posX2 = 0,
+        posY2 = 0;
     if (document.getElementById("OBamelia")) {
         document.getElementById("OBamelia").onmousedown = dragMouseDown;
     } else {
-        elmnt.onmousedown = dragMouseDown;
+        element.onmousedown = dragMouseDown;
     }
 
     function dragMouseDown(e) {
         e = e || window.event;
         e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
+        posX2 = e.clientX;
+        posY2 = e.clientY;
         document.onmouseup = closeDragElement;
         document.onmousemove = elementDrag;
     }
@@ -237,13 +237,12 @@ function dragElement(elmnt) {
     function elementDrag(e) {
         e = e || window.event;
         e.preventDefault();
-
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        posX1 = posX2 - e.clientX;
+        posY1 = posY2 - e.clientY;
+        posX2 = e.clientX;
+        posY2 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - posY1) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - posX1) + "px";
     }
 
     function closeDragElement() {
@@ -294,8 +293,8 @@ function ShowFeatures() {
 }
 
 function SetColors() {
-    var divsArr = document.querySelectorAll('.OUTBRAIN');
-    var flag = false;
+    const divsArr = document.querySelectorAll('.OUTBRAIN');
+    let flag = false;
 
     for (let i = 0; i < divsArr.length; i++) {
         if (divsArr[i].getAttribute('data-widget-id').includes('FMS')) {
@@ -311,7 +310,6 @@ function SetColors() {
 }
 
 function SetColorsSL() {
-
     let refreshTitleColor = setInterval(() => {
         if (document.getElementById("textColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach(element => {
@@ -328,7 +326,7 @@ function SetColorsSL() {
         // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-    var refreshSourceColor = setInterval(function() {
+    var refreshSourceColor = setInterval(() => {
         if (document.getElementById("sourceColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach(element => {
                 if (element.shadowRoot != null) {
@@ -343,7 +341,7 @@ function SetColorsSL() {
         // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-    var refreshTitleSize = setInterval(function() {
+    var refreshTitleSize = setInterval(() => {
         if (document.getElementById("textSizeinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach(element => {
                 if (element.shadowRoot != null) {
@@ -357,7 +355,7 @@ function SetColorsSL() {
         } // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-    var refreshSourceSize = setInterval(function() {
+    var refreshSourceSize = setInterval(() => {
         if (document.getElementById("sourceSizeinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach(element => {
                 if (element.shadowRoot != null) {
@@ -376,8 +374,7 @@ function SetColorsSL() {
 }
 
 function SetColorsSF() {
-
-    var refreshTitleColor = setInterval(function() {
+    var refreshTitleColor = setInterval(() => {
         if (document.getElementById("textColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => { text.style.color = document.getElementById("textColorinput").value }) } })
         } else {
@@ -386,7 +383,7 @@ function SetColorsSF() {
         // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-    var refreshSourceColor = setInterval(function() {
+    var refreshSourceColor = setInterval(() => {
         if (document.getElementById("sourceColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => { text.style.color = document.getElementById("sourceColorinput").value }) } })
         } else {
@@ -394,7 +391,7 @@ function SetColorsSF() {
         } // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-    var refreshTitleSize = setInterval(function() {
+    var refreshTitleSize = setInterval(() => {
         if (document.getElementById("textSizeinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => { text.style.fontSize = document.getElementById("textSizeinput").value }) } })
         } else {
@@ -403,7 +400,7 @@ function SetColorsSF() {
         // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-    var refreshSourceSize = setInterval(function() {
+    var refreshSourceSize = setInterval(() => {
         if (document.getElementById("sourceSizeinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-source').forEach(text => { text.style.fontSize = document.getElementById("sourceSizeinput").value }) } })
         } else {
