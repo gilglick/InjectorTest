@@ -144,3 +144,20 @@ padding:1%;
 
 #feedFeatures{
 	display:none;}
+
+#textColorinput {
+	margin: 4px;
+}
+
+#sourceColorinput {
+    margin: 4px;
+}
+
+#header{
+	text-align: left;
+	text-decoration: underline;
+	color:rgb(51, 63, 72) !important;
+	margin:5px 0px 0px 0px;
+	font-family:Patua One, cursive;
+	font-size:18px;position:relative;line-height:18px
+}
