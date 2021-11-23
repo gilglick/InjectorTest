@@ -62,7 +62,7 @@ outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=P
 <span class="ob_injector"><input  class="ob_injector" type="radio" id="inContent" name="inOrOut" value="0"><label class="ob_injector" for="inContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">In</label></span>
 <span class="ob_injector"><input checked class="ob_injector" type="radio" id="belowContent" name="inOrOut" value="-1"><label class="ob_injector" for="belowContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Below</label></span>
 </div><br>
-<button   class="ob_injector"  id="addWidget" onclick="GetValues(ob_q)"><span class="ob_injector">Add widget</span></button><button  class="ob_injector"  id="chooseNew" style="display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important" onclick="ChooseNew()"><span class="ob_injector">Choose Another Location</span></button></div>
+<button class="ob_injector"  id="addWidget" onclick="GetValues(ob_q)"><span class="ob_injector">Add widget</span></button><button  class="ob_injector"  id="chooseNew" style="display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important" onclick="ChooseNew()"><span class="ob_injector">Choose Another Location</span></button></div>
 <br><button  class="ob_injector"  id="reloadWidget" style="margin:15px auto; border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="ReloadWidget(ob_q)"><span class="ob_injector">Reload Widget</span></button><br>
 <button  class="ob_injector"  id="showFeedfeatures" style="margin:15px auto;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;width: 100%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;float: right;color:rgb(51, 63, 72) !important" onclick="ShowFeatures()"><span class="ob_injector">Change Fonts</span></button><br>
 <div class="ob_injector" id="feedFeatures" style="display: none;text-align: center;">
@@ -205,10 +205,12 @@ function GetValues(element) {
     OBR.extern.researchWidget();
     dragElement(document.getElementById("outbrainDiv1"));
     if (Ob_Widgets.length == 0 && document.getElementById("alertWidgets") != null) { document.getElementById("alertWidgets").style.display = "none"; }
-    if (Ob_Widgets.length > 0 && document.getElementById("alertWidgets") != null) { document.getElementById("alertWidgets").innerHTML = `<p class="alert_Widget ob_injector">Select the position of ${Ob_Widgets[0]}</p>`;
+    if (Ob_Widgets.length > 0 && document.getElementById("alertWidgets") != null) {
+        document.getElementById("alertWidgets").innerHTML = `<p class="alert_Widget ob_injector">Select the position of ${Ob_Widgets[0]}</p>`;
         document.getElementById("widgetToInject").value = Ob_Widgets[0];
         ChooseNew();
-        Ob_Widgets2.push(Ob_Widgets.shift()); }
+        Ob_Widgets2.push(Ob_Widgets.shift());
+    }
 }
 
 function CloseWindow() {
