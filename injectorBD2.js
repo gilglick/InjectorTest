@@ -1,14 +1,9 @@
-var getPermalink = window.location.href;
+const getPermalink = window.location.href;
 var docLang = "";
 var WidgetGalleryURL = "http://tams.outbrain.com/widgetGallery/";
-var langString = "";
-var queryString;
-var urlParams;
-var widgetId;
-var isGallery;
 var Ob_Widgets = [];
 var Ob_Widgets2 = [];
-Ob_Widgets3 = [];
+var Ob_Widgets3 = [];
 var counter = 0;
 var elems = document.body.getElementsByTagName("*");
 var ob_q;
@@ -110,13 +105,13 @@ function loadCSS(href, id) {
 }
 
 function GetParams() {
-    widgetId = getParameterByName("widgetId");
+    let widgetId = getParameterByName("widgetId");
     if (widgetId != null) {
         Ob_Widgets = widgetId.split(",");
     }
     console.log(Ob_Widgets);
     console.log(Ob_Widgets[0]);
-    isGallery = getParameterByName("isGallery");
+    let isGallery = getParameterByName("isGallery");
     console.log(isGallery);
     if (isGallery == null) {
         isGallery = 0;
