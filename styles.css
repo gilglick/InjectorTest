@@ -213,3 +213,16 @@ input[type="radio"].ob_injector {
     float: right;
     color: rgb(51, 63, 72) !important
 }
+
+#setColors {
+    margin: 15px auto;
+    border: 2px solid rgb(51, 63, 72)!important;
+    border-radius: 8px;
+    width: 80%;
+    left: 50%;
+    background-color: #EF8421;
+    font-family: Patua One, cursive;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(51, 63, 72) !important
+}
