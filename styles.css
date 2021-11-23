@@ -226,3 +226,8 @@ input[type="radio"].ob_injector {
     font-weight: bold;
     color: rgb(51, 63, 72) !important
 }
+
+#innerSelectionDiv2 {
+    width: 100%;
+    height: max-content;
+}
