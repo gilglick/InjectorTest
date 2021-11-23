@@ -231,3 +231,16 @@ input[type="radio"].ob_injector {
     width: 100%;
     height: max-content;
 }
+
+#showFeedfeatures {
+    margin: 15px auto;
+    border: 2px solid rgb(51, 63, 72)!important;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #EF8421;
+    font-family: Patua One, cursive;
+    font-size: 14px;
+    font-weight: bold;
+    float: right;
+    color: rgb(51, 63, 72) !important
+}
