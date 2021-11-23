@@ -231,7 +231,6 @@ function dragElement(elmnt) {
         pos3 = e.clientX;
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
-
         document.onmousemove = elementDrag;
     }
 
@@ -248,7 +247,6 @@ function dragElement(elmnt) {
     }
 
     function closeDragElement() {
-
         document.onmouseup = null;
         document.onmousemove = null;
     }
@@ -314,7 +312,7 @@ function SetColors() {
 
 function SetColorsSL() {
 
-    var refreshTitleColor = setInterval(function() {
+    let refreshTitleColor = setInterval(() => {
         if (document.getElementById("textColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach(element => {
                 if (element.shadowRoot != null) {
