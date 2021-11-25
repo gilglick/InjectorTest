@@ -244,3 +244,15 @@ input[type="radio"].ob_injector {
     float: right;
     color: rgb(51, 63, 72) !important
 }
+
+#positioHeader {
+    margin-bottom: 10px;
+    color: rgb(51, 63, 72);
+    display: none;
+}
+
+#positioButtons {
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
