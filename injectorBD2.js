@@ -1,4 +1,4 @@
-var getPermalink = window.location.href;
+const getPermalink = window.location.href;
 var docLang = "";
 var WidgetGalleryURL = "http://tams.outbrain.com/widgetGallery/";
 var Ob_Widgets = [];
@@ -29,6 +29,7 @@ for (i = 0; i < elems.length; i++) {
 var addWidgetButton = document.getElementById("addWidget");
 var closeWindowButton = document.getElementById("closebtn");
 if (addWidgetButton != null) {
+    console.log("test");
     addWidgetButton.setAttribute("onclick", "GetValues(ob_q)");
 }
 if (closeWindowButton != null) {
