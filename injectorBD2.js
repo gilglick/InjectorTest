@@ -33,6 +33,7 @@ if (addWidgetButton != null) {
     addWidgetButton.setAttribute("onclick", "GetValues(ob_q)");
 }
 if (closeWindowButton != null) {
+    console.log("test");
     closeWindowButton.setAttribute("onclick", "CloseWindow()");
 }
 
