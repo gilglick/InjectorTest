@@ -21,7 +21,6 @@ if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || 
     WidgetGalleryURL += docLang;
 }
 
-
 for (i = 0; i < elems.length; i++) {
     removeAttributes(elems[i], 'href', 'onclick');
 }
@@ -51,22 +50,22 @@ outbrainDiv1.classList.add("ob_injector");
 outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
 <h1 class="ob_injector" id="header">Widget Injector<span id="OBamelia" class="ob_injector""></span></h1><div class="ob_injector" style="text-align: left;position:relative; top:6px; width:100%;"><div class="ob_injector"  id="innerSelectionDiv" style="width:100%;height:max-content;">
 <br><input checked class="ob_injector" onchange="dis()" type="radio" id="defaultPRM" name="url" value="${getPermalink}"><label class="ob_injector" for="defaultPRM" style="color: rgb(51, 63, 72)">Default Permalink</label><br><input class="ob_injector" onchange="dis()" type="radio" id="tamsPRM" name="url" value="${WidgetGalleryURL}"><label class="ob_injector" for="tamsPRM" style="color: rgb(51, 63, 72)">Widget Gallery Permalink</label><br><input onchange="dis()" class="ob_injector" type="radio" id="customPRM" name="url" value=""><label class="ob_injector" for="customPRM" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Custom Permalink</label>
-<br><input  placeholder="Insert permalink" onchange="ob_val()" value="" data-src="${getPermalink}" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;margin-top: 10px;display:none;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive; font-weight:bold" type="text" id="CustomPermalink" name="CustomPermalink"><label class="ob_injector"  style="display:none;margin-bottom: 10px;" for="positionSelector">Position Selector:</label><input class="ob_injector"   style="display:none; width:100%;font-family:Patua One, cursive;font-size:16px; font-weight:bold" type="text" id="positionSelector" name="positionSelector"><label class="ob_injector" style="color: rgb(51, 63, 72);margin: 10px 0px; display: block;" for="widgetToInject">Widget To Inject:</label><input placeholder="Insert widegt ID" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive;font-weight:bold" type="text" id="widgetToInject" name="widgetToInject">
+<br><input placeholder="Insert permalink" onchange="ob_val()" value="" data-src="${getPermalink}" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;margin-top: 10px;display:none;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive; font-weight:bold" type="text" id="CustomPermalink" name="CustomPermalink"><label class="ob_injector"  style="display:none;margin-bottom: 10px;" for="positionSelector">Position Selector:</label><input class="ob_injector"   style="display:none; width:100%;font-family:Patua One, cursive;font-size:16px; font-weight:bold" type="text" id="positionSelector" name="positionSelector"><label class="ob_injector" style="color: rgb(51, 63, 72);margin: 10px 0px; display: block;" for="widgetToInject">Widget To Inject:</label><input placeholder="Insert widegt ID" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive;font-weight:bold" type="text" id="widgetToInject" name="widgetToInject">
 <br><br></div>
 <span class="ob_injector">Position:</span>
 <div class="ob_injector">
-<span class="ob_injector"><input  class="ob_injector" type="radio" id="aboveContent" name="inOrOut" value="1"><label class="ob_injector" for="aboveContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Above </label></span>
-<span class="ob_injector"><input  class="ob_injector" type="radio" id="inContent" name="inOrOut" value="0"><label class="ob_injector" for="inContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">In</label></span>
+<span class="ob_injector"><input class="ob_injector" type="radio" id="aboveContent" name="inOrOut" value="1"><label class="ob_injector" for="aboveContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Above </label></span>
+<span class="ob_injector"><input class="ob_injector" type="radio" id="inContent" name="inOrOut" value="0"><label class="ob_injector" for="inContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">In</label></span>
 <span class="ob_injector"><input checked class="ob_injector" type="radio" id="belowContent" name="inOrOut" value="-1"><label class="ob_injector" for="belowContent" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Below</label></span>
 </div><br>
-<button class="ob_injector"  id="addWidget" onclick="GetValues(ob_q)"><span class="ob_injector">Add widget</span></button><button  class="ob_injector"  id="chooseNew" style="display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important" onclick="ChooseNew()"><span class="ob_injector">Choose Another Location</span></button></div>
+<button class="ob_injector" id="addWidget" onclick="GetValues(ob_q)"><span class="ob_injector">Add widget</span></button><button  class="ob_injector"  id="chooseNew" style="display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important" onclick="ChooseNew()"><span class="ob_injector">Choose Another Location</span></button></div>
 <br><button  class="ob_injector" id="reloadWidget" onclick="ReloadWidget(ob_q)"><span class="ob_injector">Reload Widget</span></button><br>
-<button  class="ob_injector"  id="showFeedfeatures" onclick="ShowFeatures()"><span class="ob_injector">Change Fonts</span></button><br>
+<button  class="ob_injector" id="showFeedfeatures" onclick="ShowFeatures()"><span class="ob_injector">Change Fonts</span></button><br>
 <div class="ob_injector" id="feedFeatures" style="display: none;text-align: center;">
 <label for="titleFeatures" class="ob_injector"> Title</label><br> <input type="text" class="ob_injector" id="textColorinput" name="textFeatures" placeholder="Color"><input type="text" id="textSizeinput" class="ob_injector" name="textFeatures" placeholder="Size"> <br>
 <label for="sourceFeatures" class="ob_injector"> Source </label><br> <input type="text" id="sourceColorinput" class="ob_injector" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" class="ob_injector" name="sourceFeatures" placeholder="Size"> <br>
-<div class="ob_injector"  id="innerSelectionDiv2"><button class="ob_injector" id="setColors" onclick="SetColors()">Apply</button></div></div>
-<button  class="ob_injector"  id="closebtn" onclick="CloseWindow()"><span class="ob_injector">Close Window</span></button>`;
+<div class="ob_injector" id="innerSelectionDiv2"><button class="ob_injector" id="setColors" onclick="SetColors()">Apply</button></div></div>
+<button  class="ob_injector" id="closebtn" onclick="CloseWindow()"><span class="ob_injector">Close Window</span></button>`;
 
 document.body.appendChild(outbrainDiv1);
 GetParams();
@@ -111,8 +110,6 @@ function GetParams() {
     if (widgetId != null) {
         Ob_Widgets = widgetId.split(",");
     }
-    console.log(Ob_Widgets);
-    console.log(Ob_Widgets[0]);
     let isGallery = getParameterByName("isGallery");
     if (isGallery == null) {
         isGallery = 0;
@@ -251,7 +248,7 @@ function dragElement(element) {
 
 function ReloadWidget(e) {
     dragElement(document.getElementById("outbrainDiv1"));
-    var elems3;
+    let elems3;
     for (let i = 0; i < Ob_Widgets3.length; i++) {
         e = document.getElementById("OBouter" + i);
         e.innerHTML = "";
@@ -281,7 +278,7 @@ function dis() {
 };
 
 function ob_val() {
-    var cprmInput = document.getElementById("CustomPermalink");
+    let cprmInput = document.getElementById("CustomPermalink");
     cprmInput.setAttribute("data-src", cprmInput.value);
 };
 
@@ -291,7 +288,7 @@ function ShowFeatures() {
 }
 
 function SetColors() {
-    var divsArr = document.querySelectorAll('.OUTBRAIN');
+    const divsArr = document.querySelectorAll('.OUTBRAIN');
     let flag = false;
 
     for (let i = 0; i < divsArr.length; i++) {
