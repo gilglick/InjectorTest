@@ -8,6 +8,8 @@ var counter = 0;
 var elems = document.body.getElementsByTagName("*");
 var ob_q;
 
+loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
+
 
 if (localStorage.getItem("OBlang")) {
     docLang = localStorage.getItem("OBlang");
@@ -24,19 +26,6 @@ if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || 
 for (i = 0; i < elems.length; i++) {
     removeAttributes(elems[i], 'href', 'onclick');
 }
-
-// var addWidgetButton = document.getElementById("addWidget");
-// var closeWindowButton = document.getElementById("closebtn");
-// if (addWidgetButton != null) {
-//     console.log("test");
-//     addWidgetButton.setAttribute("onclick", "GetValues(ob_q)");
-// }
-// if (closeWindowButton != null) {
-//     console.log("test");
-//     closeWindowButton.setAttribute("onclick", "CloseWindow()");
-// }
-
-loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
 var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
@@ -160,8 +149,7 @@ function GetValues(element) {
     let permalinks = document.getElementsByName("url");
     for (let i = 0, length = permalinks.length; i < length; i++) {
         if (permalinks[i].checked) {
-            let cp;
-            cp = document.getElementById("CustomPermalink");
+            let cp = document.getElementById("CustomPermalink");
             if (permalinks[i].id == "customPRM") {
                 obPermalink = cp.getAttribute("data-src");
             } else {
