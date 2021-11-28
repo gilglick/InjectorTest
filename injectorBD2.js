@@ -26,16 +26,16 @@ for (i = 0; i < elems.length; i++) {
     removeAttributes(elems[i], 'href', 'onclick');
 }
 
-var addWidgetButton = document.getElementById("addWidget");
-var closeWindowButton = document.getElementById("closebtn");
-if (addWidgetButton != null) {
-    console.log("test");
-    addWidgetButton.setAttribute("onclick", "GetValues(ob_q)");
-}
-if (closeWindowButton != null) {
-    console.log("test");
-    closeWindowButton.setAttribute("onclick", "CloseWindow()");
-}
+// var addWidgetButton = document.getElementById("addWidget");
+// var closeWindowButton = document.getElementById("closebtn");
+// if (addWidgetButton != null) {
+//     console.log("test");
+//     addWidgetButton.setAttribute("onclick", "GetValues(ob_q)");
+// }
+// if (closeWindowButton != null) {
+//     console.log("test");
+//     closeWindowButton.setAttribute("onclick", "CloseWindow()");
+// }
 
 loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
@@ -114,17 +114,16 @@ function GetParams() {
     console.log(Ob_Widgets);
     console.log(Ob_Widgets[0]);
     let isGallery = getParameterByName("isGallery");
-    console.log(isGallery);
     if (isGallery == null) {
         isGallery = 0;
     }
     if (Ob_Widgets.length > 0) {
 
         if (isGallery == 0 || isGallery == "false") {
-
             document.getElementById("defaultPRM").checked = true;
+            console.log("test1");
         } else {
-
+            console.log("test2");
             document.getElementById("tamsPRM").checked = true;
         }
         document.getElementById("widgetToInject").value = Ob_Widgets[0];
