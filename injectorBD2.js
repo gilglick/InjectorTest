@@ -107,7 +107,7 @@ function loadCSS(href, id) {
 }
 
 function GetParams() {
-    let widgetId = getParameterByName("widgetId");
+    const widgetId = getParameterByName("widgetId");
     if (widgetId != null) {
         Ob_Widgets = widgetId.split(",");
     }
@@ -121,9 +121,7 @@ function GetParams() {
 
         if (isGallery == 0 || isGallery == "false") {
             document.getElementById("defaultPRM").checked = true;
-            console.log("test1");
         } else {
-            console.log("test2");
             document.getElementById("tamsPRM").checked = true;
         }
         document.getElementById("widgetToInject").value = Ob_Widgets[0];
@@ -132,9 +130,9 @@ function GetParams() {
     }
 }
 
-function ChooseNew(a) {
+function ChooseNew() {
     dragElement(document.getElementById("outbrainDiv1"));
-    var elems2 = document.getElementsByClassName("hover_ob2");
+    let elems2 = document.getElementsByClassName("hover_ob2");
     if (elems2.length != 0) {
         elems2[0].classList.remove("hover_ob2");
     };
@@ -161,9 +159,9 @@ function ChooseNew(a) {
 
 function GetValues(element) {
     if (element.classList.contains("hover_ob2")) { element.classList.remove("hover_ob2"); }
-    var obPermalink;
-    var permalinks = document.getElementsByName("url");
-    for (var i = 0, length = permalinks.length; i < length; i++) {
+    let obPermalink;
+    let permalinks = document.getElementsByName("url");
+    for (let i = 0, length = permalinks.length; i < length; i++) {
         if (permalinks[i].checked) {
             let cp;
             cp = document.getElementById("CustomPermalink");
