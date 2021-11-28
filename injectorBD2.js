@@ -212,7 +212,6 @@ function GetValues(element) {
 
 function CloseWindow() {
     document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
-    ƒ
     document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
