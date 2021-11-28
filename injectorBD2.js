@@ -1,4 +1,4 @@
-const getPermalink = window.location.href;
+var getPermalink = window.location.href;
 var docLang = "";
 var WidgetGalleryURL = "http://tams.outbrain.com/widgetGallery/";
 var Ob_Widgets = [];
