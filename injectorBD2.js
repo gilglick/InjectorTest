@@ -239,8 +239,8 @@ function dragElement(element) {
         posY1 = posY2 - e.clientY;
         posX2 = e.clientX;
         posY2 = e.clientY;
-        elmnt.style.top = (elmnt.offsetTop - posY1) + "px";
-        elmnt.style.left = (elmnt.offsetLeft - posX1) + "px";
+        element.style.top = (element.offsetTop - posY1) + "px";
+        element.style.left = (element.offsetLeft - posX1) + "px";
     }
 
     function closeDragElement() {
