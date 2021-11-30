@@ -8,8 +8,6 @@ var counter = 0;
 var elems = document.body.getElementsByTagName("*");
 var ob_q;
 
-loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
-
 
 if (localStorage.getItem("OBlang")) {
     docLang = localStorage.getItem("OBlang");
@@ -26,6 +24,8 @@ if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || 
 for (i = 0; i < elems.length; i++) {
     removeAttributes(elems[i], 'href', 'onclick');
 }
+
+loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
 var script2 = document.createElement("script");
 var outbrainDiv1 = document.createElement("div");
@@ -170,15 +170,27 @@ function GetValues(element) {
     var locations = document.getElementsByName("inOrOut");
     for (var i = 0, length = locations.length; i < length; i++) {
         if (locations[i].checked) {
-            if (locations[i].value == 0) {
-                element.innerHTML = "";
-                element.appendChild(outbrainDiv);
-            } else if (locations[i].value == 1) {
-                element.insertBefore(outbrainDiv, element.firstChild);
-            } else {
-                element.appendChild(outbrainDiv);
+            switch (locations[i].value) {
+                case 0:
+                    element.innerHTML = "";
+                    element.appendChild(outbrainDiv);
+                    break;
+                case 1:
+                    element.insertBefore(outbrainDiv, element.firstChild);
+                    break;
+                default:
+                    element.appendChild(outbrainDiv);
+                    break;
             }
-            break;
+            // if (locations[i].value == 0) {
+            //     element.innerHTML = "";
+            //     element.appendChild(outbrainDiv);
+            // } else if (locations[i].value == 1) {
+            //     element.insertBefore(outbrainDiv, element.firstChild);
+            // } else {
+            //     element.appendChild(outbrainDiv);
+            // }
+            // break;
         };
     }
     OBR.extern.researchWidget();
