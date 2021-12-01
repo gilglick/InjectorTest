@@ -170,27 +170,27 @@ function GetValues(element) {
     var locations = document.getElementsByName("inOrOut");
     for (var i = 0, length = locations.length; i < length; i++) {
         if (locations[i].checked) {
-            // switch (locations[i].value) {
-            //     case 0:
-            //         element.innerHTML = "";
-            //         element.appendChild(outbrainDiv);
-            //         break;
-            //     case 1:
-            //         element.insertBefore(outbrainDiv, element.firstChild);
-            //         break;
-            //     default:
-            //         element.appendChild(outbrainDiv);
-            //         break;
-            // }
-            if (locations[i].value == 0) {
-                element.innerHTML = "";
-                element.appendChild(outbrainDiv);
-            } else if (locations[i].value == 1) {
-                element.insertBefore(outbrainDiv, element.firstChild);
-            } else {
-                element.appendChild(outbrainDiv);
+            switch (locations[i].value) {
+                case 0:
+                    element.innerHTML = "";
+                    element.appendChild(outbrainDiv);
+                    break;
+                case 1:
+                    element.insertBefore(outbrainDiv, element.firstChild);
+                    break;
+                default:
+                    element.appendChild(outbrainDiv);
+                    break;
             }
-            break;
+            // if (locations[i].value == 0) {
+            //     element.innerHTML = "";
+            //     element.appendChild(outbrainDiv);
+            // } else if (locations[i].value == 1) {
+            //     element.insertBefore(outbrainDiv, element.firstChild);
+            // } else {
+            //     element.appendChild(outbrainDiv);
+            // }
+            // break;
         };
     }
     OBR.extern.researchWidget();
