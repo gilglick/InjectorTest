@@ -54,7 +54,7 @@ outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=P
 <label for="titleFeatures" class="ob_injector"> Title</label><br> <input type="text" class="ob_injector" id="textColorinput" name="textFeatures" placeholder="Color"><input type="text" id="textSizeinput" class="ob_injector" name="textFeatures" placeholder="Size"> <br>
 <label for="sourceFeatures" class="ob_injector"> Source </label><br> <input type="text" id="sourceColorinput" class="ob_injector" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" class="ob_injector" name="sourceFeatures" placeholder="Size"> <br>
 <div class="ob_injector" id="innerSelectionDiv2"><button class="ob_injector" id="setColors" onclick="SetColors()">Apply</button></div></div>
-<button  class="ob_injector" id="closebtn" onclick="CloseWindow()"><span class="ob_injector">Close Window</span></button>`;
+<button  class="ob_injector" id="closebtn" onclick="closeWindow()"><span class="ob_injector">Close Window</span></button>`;
 
 document.body.appendChild(outbrainDiv1);
 GetParams();
@@ -204,10 +204,10 @@ function GetValues(element) {
     }
 }
 
-function CloseWindow() {
+function closeWindow() {
     //document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
     outbrainDiv1.style.display = 'none';
-    document.body.removeChild(document.getElementById("outbrainDiv1"));
+    //document.body.removeChild(document.getElementById("outbrainDiv1"));
     // document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
     // document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
