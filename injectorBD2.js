@@ -27,16 +27,26 @@ for (i = 0; i < elems.length; i++) {
 
 loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
-var script2 = document.createElement("script");
-var outbrainDiv1 = document.createElement("div");
-script2.type = 'text/javascript';
-script2.async = 'async';
-script2.src = '//widgets.outbrain.com/outbrain.js';
-document.body.appendChild(script2);
+var script2;
+createScript();
 
-outbrainDiv1.id = "outbrainDiv1";
-outbrainDiv1.classList.add("ob_injector");
-outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
+function createScript() {
+
+    script2 = document.createElement("script");
+    script2.type = 'text/javascript';
+    script2.async = 'async';
+    script2.src = '//widgets.outbrain.com/outbrain.js';
+    document.body.appendChild(script2);
+}
+var outbrainDiv1;
+createMainDiv();
+
+function createMainDiv() {
+
+    outbrainDiv1 = document.createElement("div");
+    outbrainDiv1.id = "outbrainDiv1";
+    outbrainDiv1.classList.add("ob_injector");
+    outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet"><div class="ob_injector" style="position:relative;width:90%;height:90%;margin:0 auto;">
 <h1 class="ob_injector" id="header">Widget Injector<span id="OBamelia" class="ob_injector""></span></h1><div class="ob_injector" style="text-align: left;position:relative; top:6px; width:100%;"><div class="ob_injector"  id="innerSelectionDiv" style="width:100%;height:max-content;">
 <br><input checked class="ob_injector" onchange="dis()" type="radio" id="defaultPRM" name="url" value="${getPermalink}"><label class="ob_injector" for="defaultPRM" style="color: rgb(51, 63, 72)">Default Permalink</label><br><input class="ob_injector" onchange="dis()" type="radio" id="tamsPRM" name="url" value="${WidgetGalleryURL}"><label class="ob_injector" for="tamsPRM" style="color: rgb(51, 63, 72)">Widget Gallery Permalink</label><br><input onchange="dis()" class="ob_injector" type="radio" id="customPRM" name="url" value=""><label class="ob_injector" for="customPRM" style="margin-bottom: 10px;color: rgb(51, 63, 72)">Custom Permalink</label>
 <br><input placeholder="Insert permalink" onchange="ob_val()" value="" data-src="${getPermalink}" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;margin-top: 10px;display:none;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive; font-weight:bold" type="text" id="CustomPermalink" name="CustomPermalink"><label class="ob_injector"  style="display:none;margin-bottom: 10px;" for="positionSelector">Position Selector:</label><input class="ob_injector"   style="display:none; width:100%;font-family:Patua One, cursive;font-size:16px; font-weight:bold" type="text" id="positionSelector" name="positionSelector"><label class="ob_injector" style="color: rgb(51, 63, 72);margin: 10px 0px; display: block;" for="widgetToInject">Widget To Inject:</label><input placeholder="Insert widegt ID" class="ob_injector" style="font-size: 13px;letter-spacing: 0.8px;text-indent: 5px;text-transform:uppercase;border: 2px solid rgb(51, 63, 72)!important;border-radius: 8px;width:100%;font-family:Patua One, cursive;font-weight:bold" type="text" id="widgetToInject" name="widgetToInject">
@@ -56,7 +66,8 @@ outbrainDiv1.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=P
 <div class="ob_injector" id="innerSelectionDiv2"><button class="ob_injector" id="setColors" onclick="SetColors()">Apply</button></div></div>
 <button  class="ob_injector" id="closebtn" onclick="closeWindow()"><span class="ob_injector">Close Window</span></button>`;
 
-document.body.appendChild(outbrainDiv1);
+    document.body.appendChild(outbrainDiv1);
+}
 GetParams();
 var alert = document.createElement("div");
 alert.id = "alertWidgets";
