@@ -104,7 +104,6 @@ function GetParams() {
         isGallery = 0;
     }
     if (Ob_Widgets.length > 0) {
-
         if (isGallery == 0 || isGallery == "false") {
             document.getElementById("defaultPRM").checked = true;
         } else {
@@ -144,7 +143,9 @@ function ChooseNew() {
 };
 
 function GetValues(element) {
-    if (element.classList.contains("hover_ob2")) { element.classList.remove("hover_ob2"); }
+    if (element.classList.contains("hover_ob2")) {
+        element.classList.remove("hover_ob2");
+    }
     let obPermalink;
     let permalinks = document.getElementsByName("url");
     for (let i = 0, length = permalinks.length; i < length; i++) {
@@ -163,10 +164,9 @@ function GetValues(element) {
     outbrainDiv.style.clear = "both";
     outbrainDiv.style.margin = "15px 0px";
     var widget = document.getElementById("widgetToInject").value;
-    outbrainDiv.id = "OBouter" + counter;
+    outbrainDiv.id = "OBouter" + counter++;
     outbrainDiv.innerHTML = `<div class="OUTBRAIN" data-ob-test="true" data-src="${obPermalink}" data-widget-id="${widget}"></div> <script type="text/javascript" async="async" src="//widgets.outbrain.com/outbrain.js"></script>`;
     Ob_Widgets3.push(outbrainDiv.innerHTML);
-    counter++;
     var locations = document.getElementsByName("inOrOut");
     for (var i = 0, length = locations.length; i < length; i++) {
         if (locations[i].checked) {
@@ -205,8 +205,11 @@ function GetValues(element) {
 }
 
 function CloseWindow() {
-    document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
+    //document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
+    outbrainDiv1.style.display = 'none';
     document.body.removeChild(document.getElementById("outbrainDiv1"));
+    // document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
+    // document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
 function dragElement(element) {
