@@ -7,6 +7,10 @@ var Ob_Widgets3 = [];
 var counter = 0;
 var elems = document.body.getElementsByTagName("*");
 var ob_q;
+var outbrainDiv1;
+var script2;
+
+
 
 
 if (localStorage.getItem("OBlang")) {
@@ -27,19 +31,21 @@ for (i = 0; i < elems.length; i++) {
 
 loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
-var script2;
 createScript();
+createMainDiv();
+GetParams();
+createAlertDiv();
+dragElement(document.getElementById("outbrainDiv1"));
+ChooseNew();
+
 
 function createScript() {
-
     script2 = document.createElement("script");
     script2.type = 'text/javascript';
     script2.async = 'async';
     script2.src = '//widgets.outbrain.com/outbrain.js';
     document.body.appendChild(script2);
 }
-var outbrainDiv1;
-createMainDiv();
 
 function createMainDiv() {
 
@@ -68,20 +74,18 @@ function createMainDiv() {
 
     document.body.appendChild(outbrainDiv1);
 }
-GetParams();
-var alert = document.createElement("div");
-alert.id = "alertWidgets";
-alert.classList.add("ob_injector");
 
-if (Ob_Widgets.length > 0) {
-    alert.innerHTML = `<p class="alert_Widget ob_injector" >Select the position of ${Ob_Widgets[0]}</p>`;
-    document.body.appendChild(alert);
-    Ob_Widgets2.push(Ob_Widgets.shift());
+function createAlertDiv() {
+    var alert = document.createElement("div");
+    alert.id = "alertWidgets";
+    alert.classList.add("ob_injector");
+
+    if (Ob_Widgets.length > 0) {
+        alert.innerHTML = `<p class="alert_Widget ob_injector" >Select the position of ${Ob_Widgets[0]}</p>`;
+        document.body.appendChild(alert);
+        Ob_Widgets2.push(Ob_Widgets.shift());
+    }
 }
-
-dragElement(document.getElementById("outbrainDiv1"));
-
-ChooseNew();
 
 function removeAttributes(element, ...attrs) {
     attrs.forEach(attr => element.removeAttribute(attr))
@@ -216,11 +220,8 @@ function GetValues(element) {
 }
 
 function closeWindow() {
-    //document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
-    outbrainDiv1.style.display = 'none';
-    //document.body.removeChild(document.getElementById("outbrainDiv1"));
-    // document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
-    // document.body.removeChild(document.getElementById("outbrainDiv1"));
+    document.getElementById("styleHover") != null ? document.getElementById("styleHover").remove() : console.log("Injector must be open");
+    document.body.removeChild(document.getElementById("outbrainDiv1"));
 }
 
 function dragElement(element) {
