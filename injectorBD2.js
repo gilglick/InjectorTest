@@ -8,7 +8,6 @@ var counter = 0;
 var elems = document.body.getElementsByTagName("*");
 var ob_q;
 var outbrainDiv1;
-var script2;
 
 
 
@@ -31,20 +30,37 @@ for (i = 0; i < elems.length; i++) {
 
 loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
-createScript();
+//createScript();
+createScript('text/javascript', '//widgets.outbrain.com/outbrain.js');
 createMainDiv();
 GetParams();
 createAlertDiv();
 dragElement(document.getElementById("outbrainDiv1"));
 ChooseNew();
 
+function createGAScript() {
 
-function createScript() {
-    script2 = document.createElement("script");
-    script2.type = 'text/javascript';
-    script2.async = 'async';
-    script2.src = '//widgets.outbrain.com/outbrain.js';
-    document.body.appendChild(script2);
+    {
+        /* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126485704-7"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag('js', new Date());
+              gtag('config', 'UA-126485704-7');
+            </script> */
+    }
+}
+
+function createScript(type, src) {
+    let script = document.createElement("script");
+    script.async = 'async';
+    script.id = 'gil';
+    script.type = type;
+    script.src = src;
+    document.body.appendChild(script);
+
 }
 
 function createMainDiv() {
