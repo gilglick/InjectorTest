@@ -30,7 +30,6 @@ for (i = 0; i < elems.length; i++) {
 
 loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
-//createScript();
 createScript('text/javascript', '//widgets.outbrain.com/outbrain.js');
 createMainDiv();
 GetParams();
@@ -39,25 +38,22 @@ dragElement(document.getElementById("outbrainDiv1"));
 ChooseNew();
 
 function createGAScript() {
-
-    {
-        /* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126485704-7"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag() {
-                dataLayer.push(arguments);
-              }
-              gtag('js', new Date());
-              gtag('config', 'UA-126485704-7');
-            </script> */
+    createScript('text/javascript', 'https://www.googletagmanager.com/gtag/js?id=UA-126485704-7');
+    createScript('text/javascript', `window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
     }
+    gtag('js', new Date());
+    gtag('config', 'UA-126485704-7');`);
+
+
 }
 
 function createScript(type, src) {
     let script = document.createElement("script");
     script.async = 'async';
-    script.id = 'gil';
     script.type = type;
+    script.id = 'gil123';
     script.src = src;
     document.body.appendChild(script);
 
