@@ -195,20 +195,8 @@ function GetValues(element) {
     outbrainDiv.innerHTML = `<div class="OUTBRAIN" data-ob-test="true" data-src="${obPermalink}" data-widget-id="${widget}"></div> <script type="text/javascript" async="async" src="//widgets.outbrain.com/outbrain.js"></script>`;
     Ob_Widgets3.push(outbrainDiv.innerHTML);
     var locations = document.getElementsByName("inOrOut");
-    for (var i = 0, length = locations.length; i < length; i++) {
+    for (var i = 0; i < locations.length; i++) {
         if (locations[i].checked) {
-            // switch (locations[i].value) {
-            //     case 0:
-            //         element.innerHTML = "";
-            //         element.appendChild(outbrainDiv);
-            //         break;
-            //     case 1:
-            //         element.insertBefore(outbrainDiv, element.firstChild);
-            //         break;
-            //     default:
-            //         element.appendChild(outbrainDiv);
-            //         break;
-            // }
             if (locations[i].value == 0) {
                 element.innerHTML = "";
                 element.appendChild(outbrainDiv);
