@@ -31,6 +31,7 @@ for (i = 0; i < elems.length; i++) {
 loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
 
 createScript('text/javascript', '//widgets.outbrain.com/outbrain.js');
+createGAScript();
 createMainDiv();
 GetParams();
 createAlertDiv();
@@ -45,7 +46,6 @@ function createGAScript() {
     }
     gtag('js', new Date());
     gtag('config', 'UA-126485704-7');`);
-
 
 }
 
