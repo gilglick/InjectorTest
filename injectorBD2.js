@@ -8,35 +8,40 @@ var counter = 0;
 var elems = document.body.getElementsByTagName("*");
 var ob_q;
 var outbrainDiv1;
+let CSSPath = 'https://gilglick.github.io/InjectorTest/styles.css';
+let OBJSPath = '//widgets.outbrain.com/outbrain.js';
 
 
-
-
-if (localStorage.getItem("OBlang")) {
-    docLang = localStorage.getItem("OBlang");
-} else if (document.documentElement.lang) {
-    docLang = document.documentElement.lang;
-} else if (document.querySelector("[http-equiv=Content-Language]")) {
-    docLang = document.querySelector("[http-equiv=Content-Language]").content;
-}
-
-if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || docLang == "es" || docLang == "fr") {
-    WidgetGalleryURL += docLang;
-}
-
-for (i = 0; i < elems.length; i++) {
-    removeAttributes(elems[i], 'href', 'onclick');
-}
-
-loadCSS("https://gilglick.github.io/InjectorTest/styles.css", "styleHover");
-
-createScript('text/javascript', '//widgets.outbrain.com/outbrain.js');
+adjustDocLang();
+removeAllElementsAttributes();
+loadCSS(CSSPath, 'styleHover');
+createScript('text/javascript', OBJSPath);
 createGAScript();
 createMainDiv();
 GetParams();
 createAlertDiv();
 dragElement(document.getElementById("outbrainDiv1"));
 ChooseNew();
+
+function adjustDocLang() {
+    if (localStorage.getItem("OBlang")) {
+        docLang = localStorage.getItem("OBlang");
+    } else if (document.documentElement.lang) {
+        docLang = document.documentElement.lang;
+    } else if (document.querySelector("[http-equiv=Content-Language]")) {
+        docLang = document.querySelector("[http-equiv=Content-Language]").content;
+    }
+
+    if (docLang == "ja" || docLang == "de" || docLang == "it" || docLang == "he" || docLang == "es" || docLang == "fr") {
+        WidgetGalleryURL += docLang;
+    }
+}
+
+function removeAllElementsAttributes() {
+    for (i = 0; i < elems.length; i++) {
+        removeAttributes(elems[i], 'href', 'onclick');
+    }
+}
 
 function createGAScript() {
     createScript('text/javascript', 'https://www.googletagmanager.com/gtag/js?id=UA-126485704-7');
@@ -56,11 +61,9 @@ function createScript(type, src) {
     script.id = 'gil123';
     script.src = src;
     document.body.appendChild(script);
-
 }
 
 function createMainDiv() {
-
     outbrainDiv1 = document.createElement("div");
     outbrainDiv1.id = "outbrainDiv1";
     outbrainDiv1.classList.add("ob_injector");
@@ -83,12 +86,11 @@ function createMainDiv() {
 <label for="sourceFeatures" class="ob_injector"> Source </label><br> <input type="text" id="sourceColorinput" class="ob_injector" name="sourceFeatures" placeholder="Color"><input type="text" id="sourceSizeinput" class="ob_injector" name="sourceFeatures" placeholder="Size"> <br>
 <div class="ob_injector" id="innerSelectionDiv2"><button class="ob_injector" id="setColors" onclick="SetColors()">Apply</button></div></div>
 <button  class="ob_injector" id="closebtn" onclick="closeWindow()"><span class="ob_injector">Close Window</span></button>`;
-
     document.body.appendChild(outbrainDiv1);
 }
 
 function createAlertDiv() {
-    var alert = document.createElement("div");
+    let alert = document.createElement("div");
     alert.id = "alertWidgets";
     alert.classList.add("ob_injector");
 
@@ -175,7 +177,7 @@ function GetValues(element) {
     }
     let obPermalink;
     let permalinks = document.getElementsByName("url");
-    for (let i = 0, length = permalinks.length; i < length; i++) {
+    for (let i = 0; i < permalinks.length; i++) {
         if (permalinks[i].checked) {
             let cp = document.getElementById("CustomPermalink");
             if (permalinks[i].id == "customPRM") {
@@ -263,14 +265,13 @@ function dragElement(element) {
 
 function ReloadWidget(e) {
     dragElement(document.getElementById("outbrainDiv1"));
-    let elems3;
     for (let i = 0; i < Ob_Widgets3.length; i++) {
         e = document.getElementById("OBouter" + i);
         e.innerHTML = "";
         e.innerHTML = Ob_Widgets3[i];
     }
     OBR.extern.reloadWidget();
-    elems3 = document.getElementsByClassName("hover_ob");
+    let elems3 = document.getElementsByClassName("hover_ob");
     if (elems3.length != 0) {
         for (i = 0; i < elems3.length; i++) {
             elems3[i].classList.remove("hover_ob");
@@ -282,8 +283,8 @@ function ReloadWidget(e) {
 }
 
 function dis() {
-    var cprm = document.getElementById("customPRM");
-    var cprmInput = document.getElementById("CustomPermalink");
+    let cprm = document.getElementById("customPRM");
+    let cprmInput = document.getElementById("CustomPermalink");
     if (cprm.checked) {
         cprmInput.style.display = "block";
     } else {
@@ -304,22 +305,22 @@ function ShowFeatures() {
 
 function SetColors() {
     const divsArr = document.querySelectorAll('.OUTBRAIN');
-    let flag = false;
+    let isSmartLogic = false;
 
     for (let i = 0; i < divsArr.length; i++) {
         if (divsArr[i].getAttribute('data-widget-id').includes('FMS')) {
-            flag = true;
+            isSmartLogic = true;
             break;
         }
     }
-    if (flag) {
-        SetColorsSL();
+    if (isSmartLogic) {
+        setFontsSL();
     } else {
-        SetColorsSF();
+        setFontsSF();
     }
 }
 
-function SetColorsSL() {
+function setFontsSL() {
     let refreshTitleColor = setInterval(() => {
         if (document.getElementById("textColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach(element => {
@@ -380,10 +381,9 @@ function SetColorsSL() {
         // This will be executed every 5 seconds
     }, 2000); // 2000 milliseconds
 
-
 }
 
-function SetColorsSF() {
+function setFontsSF() {
     var refreshTitleColor = setInterval(() => {
         if (document.getElementById("textColorinput").value != '') {
             document.querySelectorAll('.OUTBRAIN').forEach((element) => { if (element.querySelector('.ob-widget') != null) { element.querySelector('.ob-widget').querySelector('.ob-widget-items-container').querySelectorAll('.ob-rec-text').forEach(text => { text.style.color = document.getElementById("textColorinput").value }) } })
