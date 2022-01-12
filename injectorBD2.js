@@ -77,13 +77,13 @@ function createMainDiv() {
 <span class='ob_injector'><input class='ob_injector' type='radio' id='inContent' name='inOrOut' value='0'><label class='ob_injector' for='inContent' style='margin-bottom: 10px;color: rgb(51, 63, 72)'>In</label></span>
 <span class='ob_injector'><input checked class='ob_injector' type='radio' id='belowContent' name='inOrOut' value='-1'><label class='ob_injector' for='belowContent' style='margin-bottom: 10px;color: rgb(51, 63, 72)'>Below</label></span>
 </div><br>
-<button class='ob_injector' id='addWidget' onclick='GetValues(ob_q)'><span class='ob_injector'>Add widget</span></button><button  class='ob_injector'  id='chooseNew' style='display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important' onclick='chooseNew()'><span class='ob_injector'>Choose Another Location</span></button></div>
-<br><button  class='ob_injector' id='reloadWidget' onclick='ReloadWidget(ob_q)'><span class='ob_injector'>Reload Widget</span></button><br>
-<button  class='ob_injector' id='showFeedfeatures' onclick='ShowFeatures()'><span class='ob_injector'>Change Fonts</span></button><br>
+<button class='ob_injector' id='addWidget' onclick='getValues(ob_q)'><span class='ob_injector'>Add widget</span></button><button  class='ob_injector'  id='chooseNew' style='display:inline-block;padding:6px;line-height:1.2;vertical-align: top;border:2px solid rgb(51, 63, 72)!important;border-radius:8px;margin-left:10%;height:60px;width: 44%;background-color: #EF8421;font-family:Patua One, cursive;font-size: 14px;font-weight: bold;color:rgb(51, 63, 72)!important' onclick='chooseNew()'><span class='ob_injector'>Choose Another Location</span></button></div>
+<br><button  class='ob_injector' id='reloadWidget' onclick='reloadWidget(ob_q)'><span class='ob_injector'>Reload Widget</span></button><br>
+<button  class='ob_injector' id='showFeedfeatures' onclick='showFeatures()'><span class='ob_injector'>Change Fonts</span></button><br>
 <div class='ob_injector' id='feedFeatures' style='display: none;text-align: center;'>
 <label for='titleFeatures' class='ob_injector'> Title</label><br> <input type='text' class='ob_injector' id='textColorinput' name='textFeatures' placeholder='Color'><input type='text' id='textSizeinput' class='ob_injector' name='textFeatures' placeholder='Size'> <br>
 <label for='sourceFeatures' class='ob_injector'> Source </label><br> <input type='text' id='sourceColorinput' class='ob_injector' name='sourceFeatures' placeholder='Color'><input type='text' id='sourceSizeinput' class='ob_injector' name='sourceFeatures' placeholder='Size'> <br>
-<div class='ob_injector' id='innerSelectionDiv2'><button class='ob_injector' id='setColors' onclick='SetColors()'>Apply</button></div></div>
+<div class='ob_injector' id='innerSelectionDiv2'><button class='ob_injector' id='setColors' onclick='setColors()'>Apply</button></div></div>
 <button  class='ob_injector' id='closebtn' onclick='closeWindow()'><span class='ob_injector'>Close Window</span></button>`;
     document.body.appendChild(outbrainDiv1);
 }
@@ -149,7 +149,6 @@ function chooseNew() {
     if (elems2.length != 0) {
         elems2[0].classList.remove('hover_ob2');
     };
-
     window.onmouseover = function(e) {
         if (!e.target.classList.contains('ob_injector')) {
             e.target.classList.add('hover_ob');
@@ -170,7 +169,7 @@ function chooseNew() {
     };
 };
 
-function GetValues(element) {
+function getValues(element) {
     let obPermalink;
     if (element.classList.contains('hover_ob2')) {
         element.classList.remove('hover_ob2');
@@ -264,7 +263,7 @@ function dragElement(element) {
     }
 }
 
-function ReloadWidget(e) {
+function reloadWidget(e) {
     dragElement(document.getElementById('outbrainDiv1'));
     for (let i = 0; i < Ob_Widgets3.length; i++) {
         e = document.getElementById('OBouter' + i);
@@ -299,12 +298,12 @@ function ob_val() {
     cprmInput.setAttribute('data-src', cprmInput.value);
 };
 
-function ShowFeatures() {
+function showFeatures() {
     let x = document.getElementById('feedFeatures');
     x.style.display == 'none' ? x.style.display = 'block' : x.style.display = 'none';
 }
 
-function SetColors() {
+function setColors() {
     const divsArr = document.querySelectorAll('.OUTBRAIN');
     let isSmartLogic = false;
 
