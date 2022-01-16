@@ -15,7 +15,7 @@ const OBJSPath = '//widgets.outbrain.com/outbrain.js';
 adjustDocLang();
 removeAllElementsAttributes();
 loadCSS(CSSPath, 'styleHover');
-createScript('text/javascript', OBJSPath);
+createScript(OBJSPath);
 createGAScript();
 createMainDiv();
 getParams();
