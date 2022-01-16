@@ -45,13 +45,7 @@ function removeAllElementsAttributes() {
 
 function createGAScript() {
     createScript('https://www.googletagmanager.com/gtag/js?id=UA-126485704-7');
-    createScript(`window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-126485704-7');`);
-
+    createScript(`window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-126485704-7');`);
 }
 
 function createScript(src) {
@@ -231,11 +225,7 @@ function dragElement(element) {
         posY1 = 0,
         posX2 = 0,
         posY2 = 0;
-    if (document.getElementById('OBamelia')) {
-        document.getElementById('OBamelia').onmousedown = dragMouseDown;
-    } else {
-        element.onmousedown = dragMouseDown;
-    }
+    document.getElementById('OBamelia') ? document.getElementById('OBamelia').onmousedown = dragMouseDown : element.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
         e = e || window.event;
